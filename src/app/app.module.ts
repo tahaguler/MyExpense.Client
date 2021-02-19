@@ -1,22 +1,32 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavComponent } from './nav/nav.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NavComponent} from './nav/nav.component';
 import {FormsModule} from '@angular/forms';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
+import {HomeComponent} from './home/home.component';
+import {RegisterComponent} from './register/register.component';
+import {ExpenseListComponent} from './dashboard/expense-list/expense-list.component';
+import {ExpenseDetailComponent} from './dashboard/expense-detail/expense-detail.component';
+import {ListsComponent} from './lists/lists.component';
+import {ExpenseCategoryListComponent} from './dashboard/expense-category-list/expense-category-list.component';
+import {ExpenseCategoryDetailComponent} from './dashboard/expense-category-detail/expense-category-detail.component';
+import {SharedModule} from './_modules/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    ExpenseListComponent,
+    ExpenseDetailComponent,
+    ListsComponent,
+    ExpenseCategoryListComponent,
+    ExpenseCategoryDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -24,9 +34,10 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    BsDropdownModule.forRoot()
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

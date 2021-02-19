@@ -17,7 +17,7 @@ import {ReplaySubject} from 'rxjs';
 // Todo: <!--            aria-current="page" bu ne demek?--> <!--          aria-label="Search" bu ne demek?-->
 export class AccountService {
 
-  baseUrl = 'http://localhost:55849/api/'; // ToDo: This url needs to be turned into an https. C# side needs modifications.
+  baseUrl = 'https://localhost:44316/api/'; // ToDo: This url needs to be turned into an https. C# side needs modifications.
   private currentUserSource = new ReplaySubject<User>(1); // Todo: What does ReplaySubject do?
   currentUser$ = this.currentUserSource.asObservable();
 
