@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavComponent} from './nav/nav.component';
 import {FormsModule} from '@angular/forms';
@@ -15,6 +15,8 @@ import {ListsComponent} from './lists/lists.component';
 import {ExpenseCategoryListComponent} from './dashboard/expense-category-list/expense-category-list.component';
 import {ExpenseCategoryDetailComponent} from './dashboard/expense-category-detail/expense-category-detail.component';
 import {SharedModule} from './_modules/shared.module';
+import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
+import {ErrorInterceptor} from './_interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import {SharedModule} from './_modules/shared.module';
     ExpenseDetailComponent,
     ListsComponent,
     ExpenseCategoryListComponent,
-    ExpenseCategoryDetailComponent
+    ExpenseCategoryDetailComponent,
+    TestErrorsComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,9 @@ import {SharedModule} from './_modules/shared.module';
     FormsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

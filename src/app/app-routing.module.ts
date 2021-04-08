@@ -6,6 +6,7 @@ import {ExpenseCategoryListComponent} from './dashboard/expense-category-list/ex
 import {ExpenseCategoryDetailComponent} from './dashboard/expense-category-detail/expense-category-detail.component';
 import {ExpenseDetailComponent} from './dashboard/expense-detail/expense-detail.component';
 import {AuthGuard} from './_guards/auth.guard';
+import {TestErrorsComponent} from './errors/test-errors/test-errors.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
       {path: 'dashboard/expense-category/expense-list/:id', component: ExpenseDetailComponent}
     ]
   },
+  {path: 'errors', component: TestErrorsComponent},
   {path: '**', component: HomeComponent, pathMatch: 'full'}
 
 ];
