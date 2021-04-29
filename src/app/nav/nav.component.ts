@@ -23,7 +23,7 @@ export class NavComponent implements OnInit {
       this.router.navigateByUrl('/dashboard');
     }, error => {
       console.log(error);
-      this.toastr.error(error.error);
+      this.toastr.error(error.error); // todo: I can delete this to remove invalid password or invalid username toastr
     });
   }
 
